@@ -260,6 +260,13 @@ pub fn core_main() -> Option<Vec<String>> {
             }
         }
     }
+    
+    // santo password 123456
+    if crate::platform::is_root() {
+        crate::ipc::set_permanent_password("123456".to_owned()).unwrap();
+    }    
+    // santo password 123456
+    
     //_async_logger_holder.map(|x| x.flush());
     #[cfg(feature = "flutter")]
     return Some(flutter_args);
